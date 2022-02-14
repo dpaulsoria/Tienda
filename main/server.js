@@ -27,7 +27,10 @@ app.use(express.json());
 
 // Routes
 
-app.use(cors());
+const options = require('./cors')
+
+//app.use(cors(options));
+app.use(cors())
 routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
