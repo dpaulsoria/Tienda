@@ -18,12 +18,8 @@ function login() {
   })
     .then(res => res.json())
     .then(data => {
-      console.log(data)
-      if (data['message'] === 'Confirmation') alert('Init')
-      return data.json()
+      if (data['message'] === 'Confirmation') console.log('h')
     })
-    .then(post => {
-      console.log(post.title)
-    })
+    .catch(err => console.error(err.message))
 
 }

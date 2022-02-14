@@ -34,10 +34,15 @@ app.use(express.json());
 
 const optionsLogin = {};
 
+/*
 app.get('/', (req, res) => {
   res.render(path.join(app.get('views') + '/login.html'), optionsLogin)
 });
 
+app.get('/dashboard', (req, res) => {
+  res.render(path.join(app.get('views') + '/dashboard.html'), optionsLogin)
+});
+*/
 
 const options = require('./cors');
 

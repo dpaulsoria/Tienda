@@ -154,18 +154,10 @@ const books = [
   {
     id: 20,
     isbn: 8048589101212,
-    title: "Tomás Luis de Victoria",
-    author: "Antonio Gessa Loaysa",
+    title: "Calculo de Varias Variables",
+    author: "Isaac Newton",
     cant: 9,
     img: '8048589101212.jpg'
-  },
-  {
-    id: 21,
-    isbn: 6648321632771,
-    title: "El canto gregoriano, historia, liturgia, formas...",
-    author: "Juan Carlos Asensio",
-    cant: 7,
-    img: '6648321632771.jpg'
   }
   ]
 
