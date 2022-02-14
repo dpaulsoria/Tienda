@@ -29,11 +29,16 @@ const updateUserSchema = joi.object({
 })
 
 const getUserSchema = joi.object({
-  id: id.required()
+  username: username.required()
+})
+
+const loginUserSchema = joi.object({
+  username: username.required(),
+  password: password.required()
 })
 
 const deleteUserSchema = joi.object({
-  id: id.required()
+  username: username.required()
 })
 
-module.exports = { createUserSchema, updateUserSchema, getUserSchema, deleteUserSchema }
+module.exports = { createUserSchema, updateUserSchema, getUserSchema, deleteUserSchema, loginUserSchema }

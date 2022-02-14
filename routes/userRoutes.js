@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 
-const UserService = require('../services/booksService');
+const UserService = require('../services/usersService');
 const service = new UserService();
 
 const validatorHandler = require('../middlewares/validatorHandler');
@@ -10,6 +10,7 @@ const {
   updateUserSchema,
   getUserSchema,
   deleteUserSchema,
+  loginUserSchema
 } = require('../schemas/userSchema');
 
 router.post(
@@ -32,6 +33,23 @@ router.get('/all', async (req, res, next) => {
     next(err);
   }
 });
+
+router.post(
+  '/login',
+  validatorHandler(loginUserSchema, 'body'),
+  async (req, res, next) => {
+    try {
+      const body = req.body
+      const user = body.user
+      const password = body.password
+      console.log(body, user, password)
+      if (user < 0) res.status(404).json({ message: 'User not found' });
+      else res.status(200).json(await service.login(user, password));
+    } catch (err) {
+      next(err);
+    }
+  }
+);
 
 router.get(
   '/:user',

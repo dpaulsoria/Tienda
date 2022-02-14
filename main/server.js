@@ -16,24 +16,10 @@ const {
 // Settings
 
 app.set('port', 3000);
-app.set('views', path.join(__dirname, '/views'));
-app.engine('html', require('ejs').renderFile);
-app.set('view engine', 'ejs');
+app.set('views', path.join(__dirname, '/views'))
+app.engine('html', require('ejs').renderFile)
+app.set('view engine', 'ejs')
 
-// Basic routes
-
-const optionsLogin = {};
-
-app.get('/', (req, res) => {
-  res.render(
-    path.join(app.get('views') + '/login.html'),
-    optionsLogin
-  );
-});
-
-// Static files
-
-app.use(express.static(path.join(__dirname, '../public')));
 
 // Middlewares
 
@@ -44,14 +30,28 @@ app.use(express.json());
 
 // Routes
 
+// Basic routes
+
+const optionsLogin = {};
+
+app.get('/', (req, res) => {
+  res.render(path.join(app.get('views') + '/login.html'), optionsLogin)
+});
+
+
 const options = require('./cors');
 
 //app.use(cors(options));
+
 app.use(cors());
 routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
 app.use(errorHandler);
+
+// Static files
+
+app.use(express.static(path.join(__dirname, '/public')))
 
 // Starting the server
 

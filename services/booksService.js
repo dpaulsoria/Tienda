@@ -42,7 +42,6 @@ class BooksService {
     else this.books.splice(index, 1)
     return { message: "deleted", "id": id }
   }
-
 }
 
 module.exports = BooksService

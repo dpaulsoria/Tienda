@@ -18,6 +18,12 @@ class UsersService {
     return { message: "created", user: newId }
   }
 
+  async login(username, password) {
+    const index = this.users.findIndex(item => item.username === username || item.password === password)
+    if (index === -1) boom.notFound(msgError)
+    else return { message: 'Confirmation' }
+  }
+
   async find(username) {
     const index = this.users.findIndex(item => item.username === username || item.id === username)
     if (index === -1) boom.notFound(msgError)
