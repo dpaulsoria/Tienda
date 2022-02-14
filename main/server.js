@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const path = require('path');
 
 const app = express();
 
@@ -12,11 +13,27 @@ const {
   boomErrorHandler,
 } = require('../middlewares/errorHandler');
 
+// Settings
+
 app.set('port', 3000);
+app.set('views', path.join(__dirname, '/views'));
+app.engine('html', require('ejs').renderFile);
+app.set('view engine', 'ejs');
+
+// Basic routes
+
+const optionsLogin = {};
 
 app.get('/', (req, res) => {
-  res.send('Hola');
+  res.render(
+    path.join(app.get('views') + '/login.html'),
+    optionsLogin
+  );
 });
+
+// Static files
+
+app.use(express.static(path.join(__dirname, '../public')));
 
 // Middlewares
 
@@ -27,10 +44,10 @@ app.use(express.json());
 
 // Routes
 
-const options = require('./cors')
+const options = require('./cors');
 
 //app.use(cors(options));
-app.use(cors())
+app.use(cors());
 routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
