@@ -27,6 +27,7 @@ app.use(express.json());
 
 // Routes
 
+app.use(cors());
 routerApi(app);
 app.use(logErrors);
 app.use(boomErrorHandler);
