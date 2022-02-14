@@ -7,8 +7,8 @@ const service = new BooksService()
 
 router.post('/', (req, res) => {
   const body = req.body
-  console.log(body)
-  res.status(201).json({ created: true })
+  console.log("POST ", body)
+  res.status(201).json(service.create(body))
 })
 
 router.get('/all', (req, res) => {
@@ -36,7 +36,7 @@ router.delete('/:id', (req, res) => {
 
 router.patch('/:id', (req, res) => {
   const id = parseInt(req.params.id)
-  const body = req.body ;
+  const body = req.body
 
   console.log("PATCH " + id)
   console.log(body)
