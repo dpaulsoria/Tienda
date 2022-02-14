@@ -5,6 +5,7 @@ const users = [
     "lastname": "Soria",
     "admin": true,
     "username": "dsoria",
+    "password": "dsoria",
     "books": []
   },
   {
@@ -13,6 +14,7 @@ const users = [
     "lastname": "Ramirez",
     "admin": false,
     "username": "pramirez",
+    "password": "pramirez",
     "books": []
   },
   {
@@ -21,6 +23,7 @@ const users = [
     "lastname": "Suarez",
     "admin": false,
     "username": "msuarez",
+    "password": "msuarez",
     "books": []
   },
   {
@@ -29,6 +32,7 @@ const users = [
     "lastname": "Montoya",
     "admin": false,
     "username": "lmontoya",
+    "password": "lmontoya",
     "books": []
   }
 ]

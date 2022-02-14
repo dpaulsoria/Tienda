@@ -1,3 +1,6 @@
+const boom = require("boom")
+const msgError = "User not found"
+
 class UsersService {
 
   constructor() {
@@ -5,7 +8,7 @@ class UsersService {
 
   }
 
-  create(data) {
+  async create(data) {
     const newId = this.users.length
     const newUser = {
       "id": newId,
@@ -15,27 +18,27 @@ class UsersService {
     return { message: "created", user: newId }
   }
 
-  find(username) {
+  async find(username) {
     const index = this.users.findIndex(item => item.username === username || item.id === username)
-    if (index === -1) throw new Error('Book not found')
+    if (index === -1) boom.notFound(msgError)
     else return this.users[index]
   }
 
-  update(username, changes) {
+  async update(username, changes) {
     const index = this.users.findIndex(item => item.username === username || item.id === username)
-    const newUser = {
-      "id": parseInt(username, 10),
+    if (index === -1) boom.notFound(msgError)
+    const book = this.users[index]
+    this.users[index] = {
+      ...book,
       ...changes
     }
-    console.log(index, newUser, changes)
-    if (index === -1) throw new Error('Book not found')
-    else this.users[index] = newUser
-    return { message: "updated", user: username }
+    console.log(index, this.users[index], changes)
+    return { message: "updated", "id": username }
   }
 
-  delete(username) {
+  async delete(username) {
     const index = this.users.findIndex(item => item.username === username || item.id === username)
-    if (index === -1) throw new Error('User not found')
+    if (index === -1) boom.notFound(msgError)
     else this.users.splice(index, 1)
     return { message: "deleted", user: username }
   }

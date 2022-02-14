@@ -1,3 +1,6 @@
+const boom = require("boom")
+const msgError = "Book not found"
+
 class BooksService {
 
   constructor() {
@@ -5,7 +8,7 @@ class BooksService {
 
   }
 
-  create(data) {
+  async create(data) {
     const newId = this.books.length
     const newBook = {
       "id": newId,
@@ -15,27 +18,27 @@ class BooksService {
     return { message: "created", id: newId }
   }
 
-  find(id) {
+  async find(id) {
     const index = this.books.findIndex(item => item.isbn === id || item.id === id)
-    if (index === -1) throw new Error('Book not found')
+    if (index === -1) boom.notFound(msgError)
     else return this.books[index]
   }
 
-  update(id, changes) {
+  async update(id, changes) {
     const index = this.books.findIndex(item => item.isbn === id || item.id === id)
-    const newBook = {
-      "id": parseInt(id, 10),
+    if (index === -1) boom.notFound(msgError)
+    const book = this.books[index]
+    this.books[index] = {
+      ...book,
       ...changes
     }
-    console.log(index, newBook, changes)
-    if (index === -1) throw new Error('Book not found')
-    else this.books[index] = newBook
+    console.log(index, this.books[index], changes)
     return { message: "updated", "id": id }
   }
 
-  delete(id) {
+  async delete(id) {
     const index = this.books.findIndex(item => item.isbn === id || item.id === id)
-    if (index === -1) throw new Error('Book not found')
+    if (index === -1) boom.notFound(msgError)
     else this.books.splice(index, 1)
     return { message: "deleted", "id": id }
   }

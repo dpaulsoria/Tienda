@@ -2,10 +2,10 @@
   "name": "tienda",
   "version": "1.0.0",
   "description": "",
-  "main": "index.js",
+  "main": "main/server.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon index.js",
+    "dev": "nodemon main/server.js",
     "start": "eslint"
   },
   "keywords": [],
@@ -18,7 +18,10 @@
     "prettier": "^2.5.1"
   },
   "dependencies": {
+    "boom": "^7.3.0",
+    "cors": "^2.8.5",
     "express": "^4.17.2",
+    "joi": "^17.6.0",
     "morgan": "^1.10.0"
   }
 }
