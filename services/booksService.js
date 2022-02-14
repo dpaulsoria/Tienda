@@ -1,9 +1,10 @@
 class BooksService {
 
   constructor() {
-    this.books = require('../books')
+    this.books = require('../data/books')
 
   }
+
   create(data) {
     const newId = this.books.length
     const newBook = {
@@ -11,7 +12,7 @@ class BooksService {
       ...data
     }
     this.books.push(newBook)
-    return { newId }
+    return { message: "created", id: newId }
   }
 
   find(id) {
@@ -38,6 +39,7 @@ class BooksService {
     else this.books.splice(index, 1)
     return { message: "deleted", "id": id }
   }
+
 }
 
 module.exports = BooksService

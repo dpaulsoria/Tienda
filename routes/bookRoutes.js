@@ -7,7 +7,6 @@ const service = new BooksService()
 
 router.post('/', (req, res) => {
   const body = req.body
-  console.log("POST ", body)
   res.status(201).json(service.create(body))
 })
 
@@ -17,18 +16,12 @@ router.get('/all', (req, res) => {
 
 router.get('/:id', (req, res) => {
   const id = parseInt(req.params.id)
-
-  console.log("GET " + id)
-
-  if (id < 0) res.status(404).json({ message: 'Not found' })
+  if (id < 0) res.status(404).json({ message: 'Book not found' })
   else res.status(200).json(service.find(id))
 })
 
 router.delete('/:id', (req, res) => {
   const id = parseInt(req.params.id)
-
-  console.log("DELETE " + id)
-
   if (id < 0) res.status(404).json({ message: 'Book not found to delete' })
   else res.status(200).json(service.delete(id))
 
@@ -37,10 +30,6 @@ router.delete('/:id', (req, res) => {
 router.patch('/:id', (req, res) => {
   const id = parseInt(req.params.id)
   const body = req.body
-
-  console.log("PATCH " + id)
-  console.log(body)
-
   if (id < 0) res.status(404).json({ message: 'Book not found to update' })
   else res.status(200).json(service.update(id, body))
 })
