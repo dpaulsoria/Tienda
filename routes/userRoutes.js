@@ -28,7 +28,7 @@ router.post(
 
 router.get('/all', async (req, res, next) => {
   try {
-    res.json(await service.books);
+    res.json(await service.users);
   } catch (err) {
     next(err);
   }
@@ -52,13 +52,13 @@ router.post(
 );
 
 router.get(
-  '/:user',
+  '/:username',
   validatorHandler(getUserSchema, 'params'),
   async (req, res, next) => {
     try {
-      const user = parseInt(req.params.user);
-      if (user < 0) res.status(404).json({ message: 'Not found' });
-      else res.status(200).json(await service.find(user));
+      const username = req.params.username;
+      if (username.length < 0) res.status(404).json({ message: 'Not found' });
+      else res.status(200).json(await service.find(username));
     } catch (err) {
       next(err);
     }
@@ -66,14 +66,14 @@ router.get(
 );
 
 router.delete(
-  '/:user',
+  '/:username',
   validatorHandler(deleteUserSchema, 'params'),
   async (req, res, next) => {
     try {
-      const user = parseInt(req.params.user);
-      if (user < 0)
+      const username = req.params.username;
+      if (username.length < 0)
         res.status(404).json({ message: 'User not found to delete' });
-      else res.status(200).json(await service.delete(user));
+      else res.status(200).json(await service.delete(username));
     } catch (err) {
       next(err);
     }

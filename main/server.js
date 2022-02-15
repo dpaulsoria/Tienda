@@ -28,13 +28,11 @@ app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
 
-// Routes
-
 // Basic routes
 
 const optionsLogin = {};
 
-/*
+
 app.get('/', (req, res) => {
   res.render(path.join(app.get('views') + '/login.html'), optionsLogin)
 });
@@ -42,7 +40,8 @@ app.get('/', (req, res) => {
 app.get('/dashboard', (req, res) => {
   res.render(path.join(app.get('views') + '/dashboard.html'), optionsLogin)
 });
-*/
+
+
 
 const options = require('./cors');
 

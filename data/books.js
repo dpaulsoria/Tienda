@@ -18,7 +18,7 @@ const books = [
   {
     id: 2,
     isbn: 5045162583909,
-    title: 'Producción Limpia, Contaminación Y Gestión Ambiental',
+    title: 'Producción Limpia Contaminación Y Gestión Ambiental',
     author: 'Carlos Eduardo Fúquene Retamoso',
     cant: 10,
     img: '5045162583909.jpg',
@@ -26,8 +26,8 @@ const books = [
   {
     id: 3,
     isbn: 7756490639290,
-    title: 'Ingeniería Ambiental: Contaminación Y Tratamientos',
-    author: 'Ramón Sans, Joan De Pablo Ribas',
+    title: 'Ingeniería Ambiental Contaminación Y Tratamientos',
+    author: 'Ramón Sans & Joan De Pablo Ribas',
     cant: 10,
     img: '7756490639290.jpg',
   },
@@ -43,7 +43,7 @@ const books = [
     id: 5,
     isbn: 8980551801646,
     title: 'Ingeniería de control de la contaminación del aire',
-    author: 'Nevers, Noe',
+    author: 'Nevers Noe',
     cant: 10,
     img: '8980551801646.jpg',
   },
@@ -59,7 +59,7 @@ const books = [
     id: 7,
     isbn: 7748443504755,
     title: 'Evaluación y control de la contaminación',
-    author: ' Villegas Posada, Francisco Alberto  ',
+    author: 'Villegas Posada Francisco Alberto',
     cant: 10,
     img: '7748443504755.jpg',
   },
@@ -67,7 +67,7 @@ const books = [
     id: 8,
     isbn: 5889834421815,
     title: 'Tratamiento de vertidos industriales y peligrosos',
-    author: ' levin ',
+    author: 'levin',
     cant: 10,
     img: '5889834421815.jpg',
   },
@@ -98,7 +98,7 @@ const books = [
   {
     id: 13,
     isbn: 6258914127383,
-    title: "Tomás Luis de Victoria: A guide to research",
+    title: "Tomás Luis de Victoria A guide to research",
     author: "Eugene Casjen Cramer",
     cant: 5,
     img: '6258914127383.jpg'
@@ -140,13 +140,13 @@ const books = [
     isbn: 2636652206568,
     title: "Officium Hebdomadae Sanctae de Tomás Luis de Victoria",
     author: "Samuel Rubio",
-    cant:3,
+    cant: 3,
     img: '2636652206568.jpg'
   },
   {
     id: 19,
     isbn: 1905174106376,
-    title: "The notation of polyphonic music, 900-1600",
+    title: "The notation of polyphonic music 900-1600",
     author: "Willi Apel",
     cant: 4,
     img: '1905174106376.jpg'

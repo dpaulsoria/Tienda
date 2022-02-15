@@ -18,7 +18,9 @@ function login() {
   })
     .then(res => res.json())
     .then(data => {
-      if (data['message'] === 'Confirmation') console.log('h')
+      if (data['message'] === 'Confirmation') {
+        console.log('LOGIN')
+      }
     })
     .catch(err => console.error(err.message))
 
